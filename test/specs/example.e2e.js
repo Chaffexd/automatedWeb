@@ -11,4 +11,3 @@ describe('My Login application', () => {
             'You logged into a secure area!')
     })
 })
-
