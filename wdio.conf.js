@@ -3,9 +3,7 @@ exports.config = {
     user: process.env.SAUCE_USERNAME,
     key: process.env.SAUCE_ACCESS_KEY,
     region: 'eu',
-    specs: [
-        './test/specs/**/*.js'
-    ],
+    specs: Array(200).fill('./test/specs/**/*.js'),
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
