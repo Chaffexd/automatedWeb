@@ -1,0 +1,1 @@
+This is just a sample repo to have a CI running automated tests against the Browser on Sauce Labs to verify if any issues are present.
