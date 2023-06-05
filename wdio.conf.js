@@ -273,7 +273,6 @@ exports.config = {
       ui: 'bdd',
       timeout: 60000
     },
-    // ...
   };
   
   function generateCapabilities() {
@@ -286,13 +285,27 @@ exports.config = {
     const macFirefoxVersions = [
       '113', '112', '111', '110', '109', '108', '107', '106', '105', '104', '103', '102',
       '101', '100', '99', '98', '97', '96', '95', '94', '93', '92', '91', '90', '89',
-      '88', '87', '86', '85', '84', '83', '82', '81', '80', '79', '78'
+      '88', '87', '86', '85', '84', '83', '82', '81', '80', '79'
     ];
   
     const macEdgeVersions = [
       '113', '112', '111', '110', '109', '108', '107', '106', '105', '104', '103', '102',
       '101', '100', '99', '98', '97', '96', '95', '94', '93', '92', '91', '90', '89',
-      '88', '87'
+    ];
+
+    const safariVersions = [
+      {
+        browserVersion: '16',
+        platformName: 'macOS 13'
+      },
+      {
+        browserVersion: '15',
+        platformName: 'macOS 12'
+      },
+      {
+        browserVersion: '14',
+        platformName: 'macOS 11'
+      }
     ];
 
     console.log(macEdgeVersions.length, macFirefoxVersions.length, macChromeVersions.length)
@@ -331,6 +344,18 @@ exports.config = {
         browserName: 'MicrosoftEdge',
         browserVersion: version,
         platformName: 'macOS 13',
+        'sauce:options': {
+          build: 'automated run',
+          name: 'Login test'
+        }
+      });
+    });
+
+    safariVersions.forEach(version => {
+      capabilities.push({
+        browserName: 'Safari',
+        browserVersion: version.browserVersion,
+        platformName: version.platformVersion,
         'sauce:options': {
           build: 'automated run',
           name: 'Login test'
